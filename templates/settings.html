@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings</title>
+</head>
+<body>
+<div id="settings-container">
+    <h1>Settings</h1>
+    <h2>Welcome, {{ username }}!</h2>
+	<p>nothing to see here lol</p>
+    <!-- Hier kannst du die Optionen für den Benutzer anzeigen und bearbeiten -->
+    <form action="/save_Settings" method="post">
+        <!-- Hier die Optionenfelder einfügen -->
+        <input type="submit" value="Save">
+    </form>
+	<button id="menu-btn"><a href="/menu">back to menu</a></button>
+</div>
+</body>
+</html>

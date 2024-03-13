@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalter Krieg Strategiespiel</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu.css') }}">
+</head>
+<body>
+<div id="game-container">
+    <div id="menu">
+        <h1>Kalter Krieg Strategiespiel</h1>
+		<h2>Welcome, {{ username }}!</h2>
+        <div id="join-game">
+            <h2>Spiel beitreten</h2>
+            <input type="text" id="game-code" placeholder="Spielcode">
+            <button id="join-btn">Join game</button>
+        </div>
+        <div id="create-game">
+            <h2>Spiel erstellen</h2>
+            <input type="text" id="create-code" placeholder="Spielcode">
+            <button id="create-btn">Erstellen</button>
+        </div>
+        <div id="help">
+            <h2>Hilfe</h2>
+            <button id="help-btn">Anleitung</button>
+        </div>
+        <div id="community">
+            <h2>Community</h2>
+            <button id="forum-btn">Forum</button>
+            <button id="discord-btn">Discord</button>
+        </div>
+		<div id="logout">
+            <h2>Account</h2>
+            <button id="settings-btn"><a href="/settings">settings</button>
+            <button id="logout-btn"><a href="/logout">logout</a></button>
+        </div>
+    </div>
+</div>
+<script>
+
+// actually gibt es noch keine <room-id>s :-(
+document.getElementById('join-btn').addEventListener('click', function() {
+    var gameCode = document.getElementById('game-code').value;
+    if (gameCode) {
+        window.location.href = "/game/" + gameCode;
+    } else {
+        alert("Pleas enter a game-code");
+    }
+});
+
+document.getElementById('create-btn').addEventListener('click', function() {
+    var gameCode = document.getElementById('create-code').value;
+    if (gameCode) {
+        window.location.href = "/game/" + gameCode;
+    } else {
+        alert("Pleas enter a game-code");
+    }
+});
+
+
+</script>
+<script src="{{ url_for('static', filename='menu.js') }}"></script>
+</body>
+</html>

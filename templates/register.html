@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+    <title>Register</title>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (username === '' || password === '' || confirmPassword === '') {
+                alert('Please fill in all fields.');
+                return false;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="post" action="/register" onsubmit="return validateForm()">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
